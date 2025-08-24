@@ -1,0 +1,1900 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP1 FIA</title>
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#0f172a;
+  --card2:#0b142a;
+  --text:#e5e7eb;
+  --muted:#9aa4b2;
+  --accent:#60a5fa;
+  --border:rgba(255,255,255,0.08);
+  --mx-el: 0px;
+  --my-el: 0px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 800px at 20% -10%, #1f2a44 0%, transparent 60%) , linear-gradient(180deg, #0a0f1c 0%, #0b1220 100%);
+  color:var(--text);
+  line-height:1.45;
+}
+.container{max-width:980px;margin:48px auto;padding:0 16px 48px}
+.card{
+  background:linear-gradient(180deg, var(--card) 0%, var(--card2) 100%);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,0.02);
+  overflow:visible;
+}
+.header{
+  padding:24px 24px 8px;
+  border-bottom:1px solid var(--border);
+  background:
+    radial-gradient(600px 120px at 30% -20%, rgba(96,165,250,.12), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+.header h1{margin:0 0 8px;font-size:clamp(22px, 3vw, 28px);letter-spacing:.2px}
+.header p{margin:0;color:var(--muted);font-size:14px}
+
+/* Toggle blocks */
+.block{padding:0}
+.content{display:none; padding:10px 18px 16px 22px;}
+.content .content{padding-left:20px}
+
+.toggle{
+  cursor:pointer;
+  position:relative;
+  user-select:none;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  margin:12px 12px 0;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+  transition:background .2s, border-color .2s, box-shadow .2s;
+  outline:none;
+}
+.toggle:hover{border-color:rgba(96,165,250,.35); background:rgba(96,165,250,.06)}
+.toggle:focus-visible{box-shadow:0 0 0 2px rgba(96,165,250,.45)}
+.toggle .chev{
+  width:18px;height:18px; flex:0 0 18px;
+  display:inline-grid; place-items:center;
+  transform:rotate(-90deg);
+  transition:transform .2s ease;
+  opacity:.9;
+}
+.open>.toggle .chev{transform:rotate(0deg)}
+h1.toggle, h2.toggle, h3.toggle, h4.toggle{all:unset}
+.h1 .label{font-size:18px; font-weight:700}
+.h2 .label{font-size:16px; font-weight:700}
+.h3 .label{font-size:15px; font-weight:600}
+.h4 .label{font-size:14px; font-weight:600; color:#cbd5e1}
+
+/* Tooltip via data-attribute */
+.toggle[data-tooltip]:hover::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  left: calc(var(--mx-el, 0px) + 14px);
+  top:  var(--my-el, 0px);
+  transform: translateY(-50%);
+  white-space:normal;
+  max-width:720px;
+  font-size:13px;
+  color:#e2e8f0;
+  background:#0b1324;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+  box-shadow:0 12px 24px rgba(0,0,0,.35);
+  z-index:1000;
+  pointer-events:none;
+}
+
+/* Misc */
+.rule{height:1px; background:var(--border); margin:10px 12px 0}
+.footer{padding:10px 18px 18px; color:var(--muted); font-size:12px}
+.open>.content{display:block}
+
+/* ADD: Leaf-Blöcke ohne Kinder nicht klickbar und ohne Icon */
+.leaf > .toggle{cursor:default}
+.leaf > .toggle:hover{border-color:var(--border); background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0))}
+.leaf > .toggle:focus-visible{box-shadow:none}
+.leaf > .toggle .chev{display:none}
+.leaf > .content{display:none !important}
+
+</style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <div class="header">
+        <h1>Themen-Cluster zur AP1</h1>
+        <p>Prozentangaben entsprechen der historischen Erscheinungsfrequenz</p>
+      </div>
+
+      <!-- # 88 % -->
+      <section class="block h1" id="sec-88">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-88"
+             data-tooltip="Welche Werkzeuge dienen zum Schreiben, Ausführen, Testen und Verwalten von Software?">
+          <span class="chev">▾</span>
+          <span class="label">88 % Programmierwerkzeuge zum Entwickeln, Testen und Verwalten von Software</span>
+        </div>
+        <div class="content" id="c-88">
+
+          <section class="block h2" id="sec-uml">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml"
+                 data-tooltip="Womit wird Software vor der Umsetzung geplant?">
+              <span class="chev">▾</span>
+              <span class="label">neu: UML</span>
+            </div>
+            <div class="content" id="c-uml">
+
+              <section class="block h3" id="sec-uml-usecase">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml-usecase"
+                     data-tooltip="Welches UML-Diagramm eignet sich am besten um den Kunden Rollen und Funktionen zu erläutern?">
+                  <span class="chev">▾</span>
+                  <span class="label">Anwendungsfall - Diagramm</span>
+                </div>
+                <div class="content" id="c-uml-usecase"></div>
+              </section>
+
+              <section class="block h3" id="sec-uml-aktivitaet">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml-aktivitaet"
+                     data-tooltip="Welches UML-Diagramm nimmst du im Kick-off, um den Bestellprozess mit parallelen Schritten und Ja/Nein-Verzweigungen zu erklären?">
+                  <span class="chev">▾</span>
+                  <span class="label">Aktivitäts-Diagramm</span>
+                </div>
+                <div class="content" id="c-uml-aktivitaet"></div>
+              </section>
+
+              <section class="block h3" id="sec-uml-klasse">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml-klasse"
+                     data-tooltip="Welches UML-Diagramm verwendest du um Entitäten, deren Attribute, Algorythmen und Beziehungen zueinander zu modellieren?">
+                  <span class="chev">▾</span>
+                  <span class="label">Klassen-Diagramm</span>
+                </div>
+                <div class="content" id="c-uml-klasse"></div>
+              </section>
+
+              <section class="block h3" id="sec-uml-zustand">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml-zustand"
+                     data-tooltip="Welches UML-Diagramm nutzt du, um die Lebensphasen eines Auftrags von „neu“ bis „abgeschlossen“ mit Auslösern und Übergängen zu zeigen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zustands-Diagramm</span>
+                </div>
+                <div class="content" id="c-uml-zustand"></div>
+              </section>
+
+              <section class="block h3" id="sec-uml-sequenz">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-uml-sequenz"
+                     data-tooltip="Welches UML-Diagramm verwendest du im Architektur-Review, um die zeitliche Abfolge der Nachrichten zwischen Web-App, API und Datenbank beim Login darzustellen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Sequenz-Diagramm</span>
+                </div>
+                <div class="content" id="c-uml-sequenz"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-pseudocode">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pseudocode"
+                 data-tooltip="Wie lässt sich ein Algorithmus formal darstellen, ohne eine Sprache zu verwenden?">
+              <span class="chev">▾</span>
+              <span class="label">Pseudocode / Struktogramm</span>
+            </div>
+            <div class="content" id="c-pseudocode">
+
+              <section class="block h3" id="sec-pseudo-grundbausteine">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pseudo-grundbausteine"
+                     data-tooltip="Welche Grundbausteine sind erforderlich?">
+                  <span class="chev">▾</span>
+                  <span class="label">Sequenz, Auswahl, Wiederholung korrekt einsetzen</span>
+                </div>
+                <div class="content" id="c-pseudo-grundbausteine"></div>
+              </section>
+
+              <section class="block h3" id="sec-pseudo-schleifenformen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pseudo-schleifenformen"
+                     data-tooltip="Welche Schleifenform passt zur Aufgabe?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zählschleife vs. kopfgesteuerte Schleife</span>
+                </div>
+                <div class="content" id="c-pseudo-schleifenformen"></div>
+              </section>
+
+              <section class="block h3" id="sec-pseudo-liste">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pseudo-liste"
+                     data-tooltip="Wie werden Elemente durchsucht, summiert oder gefiltert?">
+                  <span class="chev">▾</span>
+                  <span class="label">Array-/Listenverarbeitung</span>
+                </div>
+                <div class="content" id="c-pseudo-liste"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-dryrun">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-dryrun"
+                 data-tooltip="Wie prüfst du die Logik eines Codes Schritt für Schritt ohne Ausführung?">
+              <span class="chev">▾</span>
+              <span class="label">Schreibtischtest (Dry-Run)</span>
+            </div>
+            <div class="content" id="c-dryrun">
+
+              <section class="block h3" id="sec-trace-tabelle">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-trace-tabelle"
+                     data-tooltip="Wie werden Variablenwerte pro Schritt dokumentiert?">
+                  <span class="chev">▾</span>
+                  <span class="label">Trace-Tabelle erstellen</span>
+                </div>
+                <div class="content" id="c-trace-tabelle"></div>
+              </section>
+
+              <section class="block h3" id="sec-verzweigungen-auswerten">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-verzweigungen-auswerten"
+                     data-tooltip="Welche Pfade werden bei gegebenen Werten genommen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Verzweigungen auswerten</span>
+                </div>
+                <div class="content" id="c-verzweigungen-auswerten"></div>
+              </section>
+
+              <section class="block h3" id="sec-schleifeniteration-zaehlen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-schleifeniteration-zaehlen"
+                     data-tooltip="Wie oft läuft die Schleife und wann endet sie?">
+                  <span class="chev">▾</span>
+                  <span class="label">Schleifeniteration zählen</span>
+                </div>
+                <div class="content" id="c-schleifeniteration-zaehlen"></div>
+              </section>
+
+              <section class="block h3" id="sec-off-by-one">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-off-by-one"
+                     data-tooltip="Wo liegt ein Index- oder Bereichsfehler?">
+                  <span class="chev">▾</span>
+                  <span class="label">Off-by-one finden</span>
+                </div>
+                <div class="content" id="c-off-by-one"></div>
+              </section>
+
+              <section class="block h3" id="sec-ausgaben-vorhersagen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ausgaben-vorhersagen"
+                     data-tooltip="Welche Werte werden in welcher Reihenfolge ausgegeben?">
+                  <span class="chev">▾</span>
+                  <span class="label">Ausgaben vorhersagen</span>
+                </div>
+                <div class="content" id="c-ausgaben-vorhersagen"></div>
+              </section>
+
+              <section class="block h3" id="sec-nebenwirkungen-erkennen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-nebenwirkungen-erkennen"
+                     data-tooltip="Welche Variablen werden wo verändert?">
+                  <span class="chev">▾</span>
+                  <span class="label">Nebenwirkungen erkennen</span>
+                </div>
+                <div class="content" id="c-nebenwirkungen-erkennen"></div>
+              </section>
+
+              <section class="block h3" id="sec-testfaelle-varieren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-testfaelle-varieren"
+                     data-tooltip="Wie ändern andere Startwerte den Ablauf?">
+                  <span class="chev">▾</span>
+                  <span class="label">Testfälle variieren</span>
+                </div>
+                <div class="content" id="c-testfaelle-varieren"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-shell">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-shell"
+                 data-tooltip="Welcher Befehl zeigt das aktuelle Verzeichnis?">
+              <span class="chev">▾</span>
+              <span class="label">Shell</span>
+            </div>
+            <div class="content" id="c-shell"></div>
+          </section>
+
+          <section class="block h2" id="sec-comp-vs-int">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-comp-vs-int"
+                 data-tooltip="Wie unterscheiden sich Compiler und Interpreter in Ablauf und Einsatz?">
+              <span class="chev">▾</span>
+              <span class="label">Compiler vs. Interpreter</span>
+            </div>
+            <div class="content" id="c-comp-vs-int">
+
+              <section class="block h3" id="sec-ct-vs-rt">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ct-vs-rt"
+                     data-tooltip="Wann treten Fehler auf und wie werden sie gemeldet?">
+                  <span class="chev">▾</span>
+                  <span class="label">Compile-Time- vs. Run-Time-Fehler</span>
+                </div>
+                <div class="content" id="c-ct-vs-rt"></div>
+              </section>
+
+              <section class="block h3" id="sec-plattform">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-plattform"
+                     data-tooltip="Wo läuft das erzeugte Programm?">
+                  <span class="chev">▾</span>
+                  <span class="label">Plattformabhängigkeit beurteilen</span>
+                </div>
+                <div class="content" id="c-plattform"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-debugger">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-debugger"
+                 data-tooltip="Wie lassen sich Laufzeitfehler im Programmcode finden?">
+              <span class="chev">▾</span>
+              <span class="label">Debugger</span>
+            </div>
+            <div class="content" id="c-debugger">
+              <section class="block h3" id="sec-breakpoints">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-breakpoints"
+                     data-tooltip="Womit wird die Ausführung an einer definierten Stelle angehalten?">
+                  <span class="chev">▾</span>
+                  <span class="label">Breakpoints setzen</span>
+                </div>
+                <div class="content" id="c-breakpoints"></div>
+              </section>
+              <section class="block h3" id="sec-variablen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-variablen"
+                     data-tooltip="Wie können Werte während der Laufzeit überprüft werden?">
+                  <span class="chev">▾</span>
+                  <span class="label">Variablen inspizieren</span>
+                </div>
+                <div class="content" id="c-variablen"></div>
+              </section>
+              <section class="block h3" id="sec-fehleranalyse">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-fehleranalyse"
+                     data-tooltip="Welches Werkzeug unterstützt die systematische Fehlersuche?">
+                  <span class="chev">▾</span>
+                  <span class="label">Fehleranalyse</span>
+                </div>
+                <div class="content" id="c-fehleranalyse"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-vcs-trainer">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-vcs-trainer"
+                 data-tooltip="Welcher Befehl legt ein neues Repository an?">
+              <span class="chev">▾</span>
+              <span class="label">(Empfehlung des Trainers) Versionsverwaltung / Git</span>
+            </div>
+            <div class="content" id="c-vcs-trainer">
+              <section class="block h3" id="sec-github">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-github"
+                     data-tooltip="Welcher Dienst ermöglicht Hosting von Git-Repositories?">
+                  <span class="chev">▾</span>
+                  <span class="label">GitHub</span>
+                </div>
+                <div class="content" id="c-github"></div>
+              </section>
+              <section class="block h3" id="sec-gitlab">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-gitlab"
+                     data-tooltip="Welcher Repositorie-Hosting-Dienst bietet zusätzlich integrierte CI/CD-Pipelines?">
+                  <span class="chev">▾</span>
+                  <span class="label">GitLab</span>
+                </div>
+                <div class="content" id="c-gitlab"></div>
+              </section>
+              <section class="block h3" id="sec-bitbucket">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-bitbucket"
+                     data-tooltip="Welche Plattform ermöglicht Versionsverwaltung und Zusammenarbeit mit Git-Repositories?">
+                  <span class="chev">▾</span>
+                  <span class="label">Bitbucket</span>
+                </div>
+                <div class="content" id="c-bitbucket"></div>
+              </section>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- # 75 % -->
+      <section class="block h1" id="sec-75">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-75"
+             data-tooltip="Du sollst der Geschäftsführung belegen, wie schnell und stromsparend die Umgebung läuft. Welches Themengebiet bearbeitest du?">
+          <span class="chev">▾</span>
+          <span class="label">75 % Leistungsfähigkeit und Energieeffizienz von IT-Systemen bestimmen, analysieren und beurteilen können</span>
+        </div>
+        <div class="content" id="c-75">
+
+          <section class="block h2" id="sec-it-konzep-konfig">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-it-konzep-konfig"
+                 data-tooltip="Ein neues Ticketsystem soll produktiv gehen. Unter welchem Arbeitsblock fasst du Planung, Einrichtung, Tests und Doku zusammen?">
+              <span class="chev">▾</span>
+              <span class="label">IT-Systeme konzipieren, konfigurieren, testen und dokumentieren</span>
+            </div>
+            <div class="content" id="c-it-konzep-konfig">
+
+              <section class="block h3" id="sec-metriken">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-metriken"
+                     data-tooltip="Beim Performance-Review brauchst du belastbare Belege. Welche Kennzahlen sammelst und analysierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">CPU-, RAM-, Speicher- und Netzwerkmetriken</span>
+                </div>
+                <div class="content" id="c-metriken"></div>
+              </section>
+
+              <section class="block h3" id="sec-anforderungen-zielsystem">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-anforderungen-zielsystem"
+                     data-tooltip="Vor dem Einkauf erhebst du Muss- und Kann-Kriterien mit Stakeholdern. Welcher Schritt ist das?">
+                  <span class="chev">▾</span>
+                  <span class="label">Anforderungen und Zielsystem festlegen</span>
+                </div>
+                <div class="content" id="c-anforderungen-zielsystem"></div>
+              </section>
+
+              <section class="block h3" id="sec-komponenten-entwurf">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-komponenten-entwurf"
+                     data-tooltip="Aus Budget und Anforderungen leitest du Hardware und Architektur ab. Welcher Arbeitsschritt ist gemeint?">
+                  <span class="chev">▾</span>
+                  <span class="label">Komponentenwahl und Systementwurf</span>
+                </div>
+                <div class="content" id="c-komponenten-entwurf"></div>
+              </section>
+
+              <section class="block h3" id="sec-rightsizing">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-rightsizing"
+                     data-tooltip="Die Cloudkosten steigen. Wie heißt der Ansatz, Instanzgrößen und Ressourcen bedarfsgerecht zu wählen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Right-Sizing und Ressourcenplanung</span>
+                </div>
+                <div class="content" id="c-rightsizing"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-lkms">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lkms"
+                 data-tooltip="Der CIO will einen objektiven Vorher-nachher-Vergleich. Unter welchem Punkt bündelst du Metriken und Messverfahren?">
+              <span class="chev">▾</span>
+              <span class="label">Leistungskennzahlen und Messung</span>
+            </div>
+            <div class="content" id="c-lkms"></div>
+          </section>
+
+          <section class="block h2" id="sec-energie-kosten">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-energie-kosten"
+                 data-tooltip="Der CFO erwartet eine Prognose zu Strom- und Betriebskosten. Welches Thema bearbeitest du?">
+              <span class="chev">▾</span>
+              <span class="label">Energiebedarf und Kosten</span>
+            </div>
+            <div class="content" id="c-energie-kosten">
+
+              <section class="block h3" id="sec-leistungsaufnahme-vs-energie">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-leistungsaufnahme-vs-energie"
+                     data-tooltip="Du erklärst einem Azubi den Unterschied zwischen aktueller Leistung und verbrauchter Arbeit. Welcher Vergleich hilft dir dabei?">
+                  <span class="chev">▾</span>
+                  <span class="label">Leistungsaufnahme vs. Energie</span>
+                </div>
+                <div class="content" id="c-leistungsaufnahme-vs-energie"></div>
+              </section>
+
+              <section class="block h3" id="sec-green-it">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-green-it"
+                     data-tooltip="Du sollst ökologische Maßnahmen einführen, die sich wirtschaftlich rechnen. Unter welchem Schlagwort planst du das?">
+                  <span class="chev">▾</span>
+                  <span class="label">Green-IT</span>
+                </div>
+                <div class="content" id="c-green-it"></div>
+              </section>
+
+              <section class="block h3" id="sec-install-basiskonfig">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-install-basiskonfig"
+                     data-tooltip="Du setzt einen neuen Server auf inkl. OS, Treibern und Basisdiensten. Wie heißt dieser Arbeitsschritt?">
+                  <span class="chev">▾</span>
+                  <span class="label">Installation und Basiskonfiguration</span>
+                </div>
+                <div class="content" id="c-install-basiskonfig"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-sicherheitskonzept">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sicherheitskonzept"
+                 data-tooltip="Im Audit zeigst du, wie Vorgaben am Arbeitsplatz praktisch umgesetzt werden. Welche Kompetenz ist gefragt?">
+              <span class="chev">▾</span>
+              <span class="label">Umsetzung des arbeitsplatzbezogenen Sicherheitskonzeptes unterstützen können</span>
+            </div>
+            <div class="content" id="c-sicherheitskonzept">
+
+              <section class="block h3" id="sec-dsgvo-ki">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-dsgvo-ki"
+                     data-tooltip="Bei einem KI-Datenprojekt beachtest du Zweckbindung, Minimierung und Rechtsgrundlagen. Unter welchem Punkt dokumentierst du das?">
+                  <span class="chev">▾</span>
+                  <span class="label">neu: Berücksichtigung von Datenschutz bei der Verarbeitung von Daten für KI-Modelle (DSGVO).</span>
+                </div>
+                <div class="content" id="c-dsgvo-ki"></div>
+              </section>
+
+              <section class="block h3" id="sec-backup-restore">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-backup-restore"
+                     data-tooltip="Nach einem Ransomware-Vorfall musst du gezielt Systeme zurückholen. Welcher Bereich deckt Sicherungen und Restores ab?">
+                  <span class="chev">▾</span>
+                  <span class="label">Backup-Strategie und Wiederherstellung</span>
+                </div>
+                <div class="content" id="c-backup-restore"></div>
+              </section>
+
+              <section class="block h3" id="sec-logging-incident">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-logging-incident"
+                     data-tooltip="Ein Dienst fällt sporadisch aus. Welcher Teil beschreibt strukturiertes Loggen und das Melden von Auffälligkeiten?">
+                  <span class="chev">▾</span>
+                  <span class="label">Protokollierung und Incident-Meldung</span>
+                </div>
+                <div class="content" id="c-logging-incident"></div>
+              </section>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- # 62,5 % -->
+      <section class="block h1" id="sec-625">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-625"
+             data-tooltip="Du sollst für den Einkauf Varianten vergleichen und begründen. Welches Themenfeld deckt das Unterscheiden und Bewerten marktgängiger IT-Systeme ab?">
+          <span class="chev">▾</span>
+          <span class="label">62,5 % Marktgängige IT-Systeme kennen, unterscheiden und beurteilen können</span>
+        </div>
+        <div class="content" id="c-625">
+
+          <section class="block h2" id="sec-systemklassen">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-systemklassen"
+                 data-tooltip="Werkhalle vs. Büro: Wo ordnest du Client, Server, Edge und Embedded den passenden Einsatzgebieten zu?">
+              <span class="chev">▾</span>
+              <span class="label">Systemklassen und Einsatzgebiete zuordnen</span>
+            </div>
+            <div class="content" id="c-systemklassen"></div>
+          </section>
+
+          <section class="block h2" id="sec-virt-container-cloud">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-virt-container-cloud"
+                 data-tooltip="Du wählst für den Rollout zwischen VM, Containern und IaaS/PaaS/SaaS. Unter welchem Punkt grenzt du das ab?">
+              <span class="chev">▾</span>
+              <span class="label">Virtualisierung, Container und Cloud-Modelle abgrenzen</span>
+            </div>
+            <div class="content" id="c-virt-container-cloud"></div>
+          </section>
+
+          <section class="block h2" id="sec-speicher-raid">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-speicher-raid"
+                 data-tooltip="Für den neuen Fileserver vergleichst du HDD/SSD/NVMe, NAS/SAN und RAID-Level. Unter welchem Abschnitt triffst du die Wahl?">
+              <span class="chev">▾</span>
+              <span class="label">Speichersysteme und RAID-Konzepte vergleichen</span>
+            </div>
+            <div class="content" id="c-speicher-raid"></div>
+          </section>
+
+          <section class="block h2" id="sec-netz-topologien">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-netz-topologien"
+                 data-tooltip="Neubau mit Core/Access, Router und Ring/Stern. Wo bewertest du Komponenten und Topologie?">
+              <span class="chev">▾</span>
+              <span class="label">Netzwerkkomponenten und Topologien bewerten</span>
+            </div>
+            <div class="content" id="c-netz-topologien"></div>
+          </section>
+
+          <section class="block h2" id="sec-os-editionen">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-os-editionen"
+                 data-tooltip="Clients und Server brauchen passende OS-Varianten. Unter welchem Punkt triffst du die Auswahl?">
+              <span class="chev">▾</span>
+              <span class="label">Betriebssysteme und Editionen passend wählen</span>
+            </div>
+            <div class="content" id="c-os-editionen"></div>
+          </section>
+
+          <section class="block h2" id="sec-lizenz-support">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lizenz-support"
+                 data-tooltip="Der CFO fragt nach Kostenwirkung von Per-Seat, Subscription, OEM und SLAs. Wo bewertest du das?">
+              <span class="chev">▾</span>
+              <span class="label">Lizenz- und Supportmodelle beurteilen</span>
+            </div>
+            <div class="content" id="c-lizenz-support"></div>
+          </section>
+
+          <section class="block h2" id="sec-beschaffung-lifecycle">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-beschaffung-lifecycle"
+                 data-tooltip="Du planst TCO für Beschaffung, Betrieb, Wartung und End-of-Life. Welcher Abschnitt beschreibt das?">
+              <span class="chev">▾</span>
+              <span class="label">Beschaffung und Lebenszyklus kalkulieren</span>
+            </div>
+            <div class="content" id="c-beschaffung-lifecycle"></div>
+          </section>
+
+          <section class="block h2" id="sec-grundschutz">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-grundschutz"
+                 data-tooltip="Im Audit zeigst du Umsetzung und Kontrollen nach Grundschutz. Welche Kompetenz ist gefragt?">
+              <span class="chev">▾</span>
+              <span class="label">Regelungen zur IT-Sicherheit auf Grundschutzniveau im eigenen Arbeitsbereich analysieren, anwenden und ihre Einhaltung überprüfen</span>
+            </div>
+            <div class="content" id="c-grundschutz">
+
+              <section class="block h3" id="sec-schutzziele-klassifikation">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-schutzziele-klassifikation"
+                     data-tooltip="Du leitest Maßnahmen aus Vertraulichkeit, Integrität, Verfügbarkeit ab und klassifizierst Daten. Welcher Schritt ist das?">
+                  <span class="chev">▾</span>
+                  <span class="label">Schutzziele und Datenklassifikation festlegen</span>
+                </div>
+                <div class="content" id="c-schutzziele-klassifikation"></div>
+              </section>
+
+              <section class="block h3" id="sec-passwort-mfa-rechte">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-passwort-mfa-rechte"
+                     data-tooltip="Du führst MFA ein und setzt Least-Privilege praktisch um. Unter welchem Punkt ordnest du das ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Passwörter, MFA und Zugriffsrechte umsetzen</span>
+                </div>
+                <div class="content" id="c-passwort-mfa-rechte"></div>
+              </section>
+
+              <section class="block h3" id="sec-patch-update">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-patch-update"
+                     data-tooltip="Du hältst Systeme aktuell und nachweisbar gepflegt. Welcher Bereich deckt das ab?">
+                  <span class="chev">▾</span>
+                  <span class="label">Patch- und Update-Management betreiben</span>
+                </div>
+                <div class="content" id="c-patch-update"></div>
+              </section>
+
+              <section class="block h3" id="sec-hardening-crypto">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-hardening-crypto"
+                     data-tooltip="Baselines, FDE und Transportverschlüsselung werden verbindlich. Unter welchem Abschnitt verankerst du das?">
+                  <span class="chev">▾</span>
+                  <span class="label">System-Hardening und Verschlüsselung etablieren</span>
+                </div>
+                <div class="content" id="c-hardening-crypto"></div>
+              </section>
+
+              <section class="block h3" id="sec-netzsegmente-fw">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-netzsegmente-fw"
+                     data-tooltip="Du reduzierst Angriffsflächen durch Segmentierung und Regeln. Welcher Punkt beschreibt das?">
+                  <span class="chev">▾</span>
+                  <span class="label">Netzwerksegmente und Firewalls konfigurieren</span>
+                </div>
+                <div class="content" id="c-netzsegmente-fw"></div>
+              </section>
+
+              <section class="block h3" id="sec-backup-testen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-backup-testen"
+                     data-tooltip="3-2-1-Backups stehen und Restores sind geprüft. Welcher Abschnitt ist gemeint?">
+                  <span class="chev">▾</span>
+                  <span class="label">Backup-Strategie definieren und testen</span>
+                </div>
+                <div class="content" id="c-backup-testen"></div>
+              </section>
+
+              <section class="block h3" id="sec-logging-awareness">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-logging-awareness"
+                     data-tooltip="Du wertest Logs aus, meldest Incidents und schulst Mitarbeitende. Unter welchem Punkt fasst du das zusammen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Protokollierung, Meldung und Awareness sicherstellen</span>
+                </div>
+                <div class="content" id="c-logging-awareness"></div>
+              </section>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- # 50 % -->
+      <section class="block h1" id="sec-50">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-50"
+             data-tooltip="Der CFO verlangt eine belastbare Aussage, ob sich die geplante IT-Investition lohnt. Welches Themenfeld bearbeitest du?">
+          <span class="chev">▾</span>
+          <span class="label">50 % Wirtschaftlichkeit von IT-Systemen bestimmen und beurteilen können</span>
+        </div>
+        <div class="content" id="c-50">
+
+          <section class="block h2" id="sec-tco">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-tco"
+                 data-tooltip="Du trennst Investitions- von Betriebskosten und bereitest eine Gesamtbetrachtung vor. Welchen Schritt führst du durch?">
+              <span class="chev">▾</span>
+              <span class="label">Kostenarten und TCO erfassen</span>
+            </div>
+            <div class="content" id="c-tco"></div>
+          </section>
+
+          <section class="block h2" id="sec-breakeven">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-breakeven"
+                 data-tooltip="Der Einkauf fragt, ab wann die Einsparungen die Anschaffungskosten decken. Was bestimmst du?">
+              <span class="chev">▾</span>
+              <span class="label">Amortisation und Break-even bestimmen</span>
+            </div>
+            <div class="content" id="c-breakeven"></div>
+          </section>
+
+          <section class="block h2" id="sec-roi-nwa">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-roi-nwa"
+                 data-tooltip="Du vergleichst zwei Lösungen, einmal zahlenbasiert und einmal kriteriumsgewichtet. Welches Verfahren setzt du ein?">
+              <span class="chev">▾</span>
+              <span class="label">ROI/Nutzwertanalyse anwenden</span>
+            </div>
+            <div class="content" id="c-roi-nwa"></div>
+          </section>
+
+          <section class="block h2" id="sec-make-or-buy">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-make-or-buy"
+                 data-tooltip="Zeitdruck vs. Know-how: Eigenentwicklung oder Zukauf? Welche Bewertung nimmst du vor?">
+              <span class="chev">▾</span>
+              <span class="label">Make-or-Buy bewerten</span>
+            </div>
+            <div class="content" id="c-make-or-buy"></div>
+          </section>
+
+          <section class="block h2" id="sec-skalierung-betriebskosten">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-skalierung-betriebskosten"
+                 data-tooltip="Die Nutzerzahl verdoppelt sich. Welche Kosten kalkulierst du für Last, Lizenzen und Cloud-Ressourcen?">
+              <span class="chev">▾</span>
+              <span class="label">Skalierungs- und Betriebskosten abschätzen</span>
+            </div>
+            <div class="content" id="c-skalierung-betriebskosten"></div>
+          </section>
+
+          <section class="block h2" id="sec-risiken-sensitivitaeten">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-risiken-sensitivitaeten"
+                 data-tooltip="“Was, wenn der Strompreis +20 % steigt?” Du prüfst Annahmen auf Wirkung. Welchen Analyseschritt machst du?">
+              <span class="chev">▾</span>
+              <span class="label">Risiken und Sensitivitäten berücksichtigen</span>
+            </div>
+            <div class="content" id="c-risiken-sensitivitaeten"></div>
+          </section>
+
+          <section class="block h2" id="sec-entscheidung-doku">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-entscheidung-doku"
+                 data-tooltip="Der Revisor will die Auswahl nachvollziehen. Was hältst du formal fest?">
+              <span class="chev">▾</span>
+              <span class="label">Entscheidung dokumentieren und begründen</span>
+            </div>
+            <div class="content" id="c-entscheidung-doku"></div>
+          </section>
+
+          <section class="block h2" id="sec-pm-methoden">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pm-methoden"
+                 data-tooltip="Ein Vorhaben soll strukturiert geplant und gesteuert werden. Welche PM-Kompetenz bringst du ein?">
+              <span class="chev">▾</span>
+              <span class="label">Merkmale und Methoden des Projektmanagements kennen, beurteilen, anwenden können</span>
+            </div>
+            <div class="content" id="c-pm-methoden">
+
+              <section class="block h3" id="sec-phasen-agil">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-phasen-agil"
+                     data-tooltip="Festes Lastenheft oder wechselnde Anforderungen: Welchen Vorgehensrahmen ordnest du ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Phasenmodell vs. agil einordnen</span>
+                </div>
+                <div class="content" id="c-phasen-agil"></div>
+              </section>
+
+              <section class="block h3" id="sec-ziele-abnahme">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ziele-abnahme"
+                     data-tooltip="Der Product Owner verlangt klare Ziel- und Abnahmekriterien. Was legst du fest?">
+                  <span class="chev">▾</span>
+                  <span class="label">Ziele und Abnahmekriterien definieren</span>
+                </div>
+                <div class="content" id="c-ziele-abnahme"></div>
+              </section>
+
+              <section class="block h3" id="sec-stakeholder-kommunikation">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-stakeholder-kommunikation"
+                     data-tooltip="Wer entscheidet was, wer informiert wen und wie oft? Was planst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Stakeholder, Rollen und Kommunikation planen</span>
+                </div>
+                <div class="content" id="c-stakeholder-kommunikation"></div>
+              </section>
+
+              <section class="block h3" id="sec-wbs">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-wbs"
+                     data-tooltip="Das Team braucht klare Arbeitspakete. Welches Strukturartefakt erstellst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Work-Breakdown-Structure erstellen</span>
+                </div>
+                <div class="content" id="c-wbs"></div>
+              </section>
+
+              <section class="block h3" id="sec-aufwand-dauer">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-aufwand-dauer"
+                     data-tooltip="Für die Sprint-Planung musst du Größenordnungen liefern. Welche Schätzverfahren nutzt du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Aufwand und Dauer schätzen</span>
+                </div>
+                <div class="content" id="c-aufwand-dauer"></div>
+              </section>
+
+              <section class="block h3" id="sec-termine-abhaengigkeiten">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-termine-abhaengigkeiten"
+                     data-tooltip="Release hängt von Vorarbeiten ab. Wie planst du Abhängigkeiten und Meilensteine?">
+                  <span class="chev">▾</span>
+                  <span class="label">Termine und Abhängigkeiten planen</span>
+                </div>
+                <div class="content" id="c-termine-abhaengigkeiten"></div>
+              </section>
+
+              <section class="block h3" id="sec-risiken-aenderungen-qualitaet">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-risiken-aenderungen-qualitaet"
+                     data-tooltip="Neue Anforderungen, Testabdeckung, Lieferantenrisiken: Welchen Steuerungsbereich adressierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Risiken, Änderungen und Qualität steuern</span>
+                </div>
+                <div class="content" id="c-risiken-aenderungen-qualitaet"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-vertraege">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-vertraege"
+                 data-tooltip="Du beschaffst extern und willst Leistungen sauber regeln. Welche Vertragskompetenz ist gefragt?">
+              <span class="chev">▾</span>
+              <span class="label">Vertragsarten, Vertragsbestandteile und Vertragsstörungen kennen und unterscheiden</span>
+            </div>
+            <div class="content" id="c-vertraege">
+
+              <section class="block h3" id="sec-kauf-dienst-werk">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-kauf-dienst-werk"
+                     data-tooltip="Hardwarekauf, Support oder Software-Erstellung stehen an. Welche Vertragstypen grenzt du ab?">
+                  <span class="chev">▾</span>
+                  <span class="label">Kauf-, Dienst- und Werkvertrag abgrenzen</span>
+                </div>
+                <div class="content" id="c-kauf-dienst-werk"></div>
+              </section>
+
+              <section class="block h3" id="sec-sla">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sla"
+                     data-tooltip="Der Betrieb verlangt messbare Zusagen. Was definierst du mit Umfang, Qualität und KPIs?">
+                  <span class="chev">▾</span>
+                  <span class="label">Leistungsbeschreibung und SLA definieren</span>
+                </div>
+                <div class="content" id="c-sla"></div>
+              </section>
+
+              <section class="block h3" id="sec-lizenzen-rechte">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lizenzen-rechte"
+                     data-tooltip="Pro-User, Core-basiert oder Miete sowie Verwertungsrechte. Was klärst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Lizenzmodelle und Nutzungsrechte klären</span>
+                </div>
+                <div class="content" id="c-lizenzen-rechte"></div>
+              </section>
+
+              <section class="block h3" id="sec-av-dsgvo">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-av-dsgvo"
+                     data-tooltip="Dritte verarbeiten personenbezogene Daten. Was regelst du vertraglich nach DSGVO?">
+                  <span class="chev">▾</span>
+                  <span class="label">Datenschutz und AV-Verträge berücksichtigen</span>
+                </div>
+                <div class="content" id="c-av-dsgvo"></div>
+              </section>
+
+              <section class="block h3" id="sec-gewaehrleistung-haftung">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-gewaehrleistung-haftung"
+                     data-tooltip="Ein Mangel tritt auf. Welche Ansprüche und Pflichten prüfst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Gewährleistung, Haftung und Mängelrüge</span>
+                </div>
+                <div class="content" id="c-gewaehrleistung-haftung"></div>
+              </section>
+
+              <section class="block h3" id="sec-vertragsstoerungen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-vertragsstoerungen"
+                     data-tooltip="Lieferverzug oder Unmöglichkeit droht. Wie gehst du rechtlich vor?">
+                  <span class="chev">▾</span>
+                  <span class="label">Vertragsstörungen behandeln</span>
+                </div>
+                <div class="content" id="c-vertragsstoerungen"></div>
+              </section>
+
+              <section class="block h3" id="sec-laufzeit-kuendigung">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-laufzeit-kuendigung"
+                     data-tooltip="Kündigungsfristen und automatische Verlängerungen sollen klar sein. Was verhandelst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Laufzeit, Kündigung und Verlängerung regeln</span>
+                </div>
+                <div class="content" id="c-laufzeit-kuendigung"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-rdbms">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-rdbms"
+                 data-tooltip="Ein Fachverfahren braucht eine saubere Datenbasis. Welche DB-Grundlagen setzt du ein?">
+              <span class="chev">▾</span>
+              <span class="label">Grundlagen von relationalen Datenbanken kennen und anwenden können</span>
+            </div>
+            <div class="content" id="c-rdbms">
+
+              <section class="block h3" id="sec-er-zu-relationen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-er-zu-relationen"
+                     data-tooltip="Aus dem Fachkonzept mit Entitäten entsteht ein relationales Schema. Was führst du durch?">
+                  <span class="chev">▾</span>
+                  <span class="label">ER-Modell zu Relationen überführen</span>
+                </div>
+                <div class="content" id="c-er-zu-relationen"></div>
+              </section>
+
+              <section class="block h3" id="sec-schluessel-kardinalitaet">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-schluessel-kardinalitaet"
+                     data-tooltip="Eindeutige Identifikation und Beziehungen müssen stimmen. Was legst du fest?">
+                  <span class="chev">▾</span>
+                  <span class="label">Schlüssel und Kardinalitäten festlegen</span>
+                </div>
+                <div class="content" id="c-schluessel-kardinalitaet"></div>
+              </section>
+
+              <section class="block h3" id="sec-normalisierung-3nf">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-normalisierung-3nf"
+                     data-tooltip="Du willst Redundanzen und Anomalien vermeiden. Welche Regel wendest du an?">
+                  <span class="chev">▾</span>
+                  <span class="label">Normalisierung bis 3NF anwenden</span>
+                </div>
+                <div class="content" id="c-normalisierung-3nf"></div>
+              </section>
+
+              <section class="block h3" id="sec-ddl-dml">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ddl-dml"
+                     data-tooltip="Du legst Tabellen an und änderst Datenbestände. Welche SQL-Grundbefehle nutzt du?">
+                  <span class="chev">▾</span>
+                  <span class="label">DDL/DML-Grundbefehle nutzen</span>
+                </div>
+                <div class="content" id="c-ddl-dml"></div>
+              </section>
+
+              <section class="block h3" id="sec-filtern-sortieren-aggregieren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-filtern-sortieren-aggregieren"
+                     data-tooltip="Bericht: „Umsatz je Kunde im Quartal, absteigend“. Welche Abfrageelemente setzt du ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Filtern, Sortieren und Aggregieren</span>
+                </div>
+                <div class="content" id="c-filtern-sortieren-aggregieren"></div>
+              </section>
+
+              <section class="block h3" id="sec-joins-sicher">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-joins-sicher"
+                     data-tooltip="Daten liegen in mehreren Tabellen. Welche Technik verbindest du passend zum Bedarf?">
+                  <span class="chev">▾</span>
+                  <span class="label">Joins sicher anwenden</span>
+                </div>
+                <div class="content" id="c-joins-sicher"></div>
+              </section>
+
+              <section class="block h3" id="sec-acid-indizes">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-acid-indizes"
+                     data-tooltip="Buchungen müssen konsistent sein und Abfragen schnell. Welches Konzept erklärst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Transaktionen, ACID und Indizes verstehen</span>
+                </div>
+                <div class="content" id="c-acid-indizes"></div>
+              </section>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- # 37,5 % -->
+      <section class="block h1" id="sec-375">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-375"
+             data-tooltip="Du planst eine Softwareeinführung im Betrieb. Unter welchem Themenblock bündelst du typische Installations- und Konfigurationsaufgaben?">
+          <span class="chev">▾</span>
+          <span class="label">37,5 % Aktivitäten bei Installationen und Konfigurationen kennen und beurteilen</span>
+        </div>
+        <div class="content" id="c-375">
+
+          <section class="block h2" id="sec-vorbereitung-sicherung">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-vorbereitung-sicherung"
+                 data-tooltip="Vor einem Produktiv-Update willst du Risiken senken. Welchen Arbeitsschritt führst du zuerst durch?">
+              <span class="chev">▾</span>
+              <span class="label">Vorbereitung und Sicherung</span>
+            </div>
+            <div class="content" id="c-vorbereitung-sicherung">
+
+              <section class="block h3" id="sec-kompatibilitaet-abhaengigkeiten">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-kompatibilitaet-abhaengigkeiten"
+                     data-tooltip="Bevor du installierst, prüfst du OS-/HW-Anforderungen und Vorversionen. Wie heißt dieser Check?">
+                  <span class="chev">▾</span>
+                  <span class="label">Kompatibilität und Abhängigkeiten klären</span>
+                </div>
+                <div class="content" id="c-kompatibilitaet-abhaengigkeiten"></div>
+              </section>
+
+              <section class="block h3" id="sec-backup-restore-plan">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-backup-restore-plan"
+                     data-tooltip="Du willst im Fehlerfall den Ausgangszustand zurückholen. Welchen Plan legst du fest?">
+                  <span class="chev">▾</span>
+                  <span class="label">Backup/Restore-Plan</span>
+                </div>
+                <div class="content" id="c-backup-restore-plan"></div>
+              </section>
+
+              <section class="block h3" id="sec-wartungsfenster-rollback">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-wartungsfenster-rollback"
+                     data-tooltip="Mit Fachbereich und Betrieb vereinbarst du Downtime und Rückweg. Was definierst du dafür?">
+                  <span class="chev">▾</span>
+                  <span class="label">Wartungsfenster und Rollback definieren</span>
+                </div>
+                <div class="content" id="c-wartungsfenster-rollback"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-sw-installation">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sw-installation"
+                 data-tooltip="Du setzt die eigentliche Installation so um, dass sie wiederholbar ist. Welchen Schritt erledigst du jetzt?">
+              <span class="chev">▾</span>
+              <span class="label">Software-Installation ausführen</span>
+            </div>
+            <div class="content" id="c-sw-installation">
+
+              <section class="block h3" id="sec-paketmanager-setup">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-paketmanager-setup"
+                     data-tooltip="Du rollst Clients per Skript aus. Wie nutzt du Silent/Unattended korrekt?">
+                  <span class="chev">▾</span>
+                  <span class="label">Paketmanager/MSI/Setup mit Parametern</span>
+                </div>
+                <div class="content" id="c-paketmanager-setup"></div>
+              </section>
+
+              <section class="block h3" id="sec-signaturen-quellen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-signaturen-quellen"
+                     data-tooltip="Vor der Installation willst du Manipulation ausschließen. Was prüfst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Signaturen und Quellen prüfen</span>
+                </div>
+                <div class="content" id="c-signaturen-quellen"></div>
+              </section>
+
+              <section class="block h3" id="sec-version-changelog">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-version-changelog"
+                     data-tooltip="Du musst nachweisen, was wann installiert wurde. Was dokumentierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Versions- und Changelog-Dokumentation</span>
+                </div>
+                <div class="content" id="c-version-changelog"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-system-netzkonfig">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-system-netzkonfig"
+                 data-tooltip="Nach der Installation stellst du den Betrieb her. Welchen Bereich bearbeitest du?">
+              <span class="chev">▾</span>
+              <span class="label">System- und Netzwerkkonfiguration</span>
+            </div>
+            <div class="content" id="c-system-netzkonfig">
+
+              <section class="block h3" id="sec-benutzer-rechte-dienste">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-benutzer-rechte-dienste"
+                     data-tooltip="Du richtest Konten, Rollen und Dienst-Starttypen ein. Welcher Teil ist das?">
+                  <span class="chev">▾</span>
+                  <span class="label">Benutzer, Rechte, Dienste</span>
+                </div>
+                <div class="content" id="c-benutzer-rechte-dienste"></div>
+              </section>
+
+              <section class="block h3" id="sec-netz-ip-dns-dhcp-vlan">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-netz-ip-dns-dhcp-vlan"
+                     data-tooltip="Du vergibst Adressen, setzt DNS-Einträge und VLANs. Welche Konfiguration nimmst du vor?">
+                  <span class="chev">▾</span>
+                  <span class="label">Netzwerk: IP/DNS/DHCP/VLAN</span>
+                </div>
+                <div class="content" id="c-netz-ip-dns-dhcp-vlan"></div>
+              </section>
+
+              <section class="block h3" id="sec-treiber-firmware">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-treiber-firmware"
+                     data-tooltip="Du aktualisierst Geräte sicher und nachvollziehbar. Worum kümmerst du dich?">
+                  <span class="chev">▾</span>
+                  <span class="label">Treiber und Firmware</span>
+                </div>
+                <div class="content" id="c-treiber-firmware"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-test-abnahme-uebergabe">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-test-abnahme-uebergabe"
+                 data-tooltip="Vor dem Go-Live willst du Funktion belegen und sauber übergeben. Welchen Abschnitt bearbeitest du?">
+              <span class="chev">▾</span>
+              <span class="label">Test, Abnahme, Übergabe</span>
+            </div>
+            <div class="content" id="c-test-abnahme-uebergabe">
+
+              <section class="block h3" id="sec-funktions-regression">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-funktions-regression"
+                     data-tooltip="Du prüfst Kernfunktionen und Altverhalten nach dem Update. Welche Tests planst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Funktions- und Regressionstests</span>
+                </div>
+                <div class="content" id="c-funktions-regression"></div>
+              </section>
+
+              <section class="block h3" id="sec-monitoring-logging">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-monitoring-logging"
+                     data-tooltip="Nach der Abnahme sollen Metriken und Logs laufen. Was aktivierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Monitoring/Logging aktivieren</span>
+                </div>
+                <div class="content" id="c-monitoring-logging"></div>
+              </section>
+
+              <section class="block h3" id="sec-nutzerinfo-kurzdoku">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-nutzerinfo-kurzdoku"
+                     data-tooltip="Pilotgruppe und Helpdesk brauchen klare Hinweise. Was erstellst du zur Übergabe?">
+                  <span class="chev">▾</span>
+                  <span class="label">Nutzerinfo und Kurzdoku</span>
+                </div>
+                <div class="content" id="c-nutzerinfo-kurzdoku"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-hw-auswahl">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-hw-auswahl"
+                 data-tooltip="Für ein neues Team beschaffst du passende Geräte und musst die Wahl belegen. Welche Kompetenz setzt du ein?">
+              <span class="chev">▾</span>
+              <span class="label">Bedarfsgerechte Auswahl von Hardware vornehmen und begründen können</span>
+            </div>
+            <div class="content" id="c-hw-auswahl">
+
+              <section class="block h3" id="sec-lastprofil-szenario">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lastprofil-szenario"
+                     data-tooltip="Du erhebst Workloads, Peaks und Nutzungsmuster. Was klärst du zuerst?">
+                  <span class="chev">▾</span>
+                  <span class="label">Lastprofil und Einsatzszenario</span>
+                </div>
+                <div class="content" id="c-lastprofil-szenario"></div>
+              </section>
+
+              <section class="block h3" id="sec-cpu-gpu-dimensionieren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-cpu-gpu-dimensionieren"
+                     data-tooltip="Rendering oder ML erfordern Zusatzleistung. Welche Dimensionierung triffst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">CPU/GPU passend dimensionieren</span>
+                </div>
+                <div class="content" id="c-cpu-gpu-dimensionieren"></div>
+              </section>
+
+              <section class="block h3" id="sec-ram-speicherlayout">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ram-speicherlayout"
+                     data-tooltip="Du planst Kapazität, Kanäle und Swap/Cache. Welche Entscheidung triffst du hier?">
+                  <span class="chev">▾</span>
+                  <span class="label">RAM und Speicherlayout</span>
+                </div>
+                <div class="content" id="c-ram-speicherlayout"></div>
+              </section>
+
+              <section class="block h3" id="sec-storage-raid">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-storage-raid"
+                     data-tooltip="Für Datenhaltbarkeit und Tempo wählst du Medium und Level. Welche Auswahl triffst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Storage: HDD/SSD/NVMe, RAID</span>
+                </div>
+                <div class="content" id="c-storage-raid"></div>
+              </section>
+
+              <section class="block h3" id="sec-io-netz-erweiterbarkeit">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-io-netz-erweiterbarkeit"
+                     data-tooltip="Du prüfst Ports, NICs und Slots für morgen. Woran orientierst du dich?">
+                  <span class="chev">▾</span>
+                  <span class="label">I/O, Netz und Erweiterbarkeit</span>
+                </div>
+                <div class="content" id="c-io-netz-erweiterbarkeit"></div>
+              </section>
+
+              <section class="block h3" id="sec-energie-kuehlung-geraeusch">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-energie-kuehlung-geraeusch"
+                     data-tooltip="Das Gerät steht im Büro. Welche Betriebsbedingungen berücksichtigst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Energie, Kühlung, Geräusch</span>
+                </div>
+                <div class="content" id="c-energie-kuehlung-geraeusch"></div>
+              </section>
+
+              <section class="block h3" id="sec-tco-lifecycle">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-tco-lifecycle"
+                     data-tooltip="Wartung, Ersatzteile und Support beeinflussen Kosten. Was kalkulierst du über die Laufzeit?">
+                  <span class="chev">▾</span>
+                  <span class="label">TCO und Lifecycle</span>
+                </div>
+                <div class="content" id="c-tco-lifecycle"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-itsysteme-zuordnen">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-itsysteme-zuordnen"
+                 data-tooltip="Du sollst die richtige Systemart für einen Anwendungsfall benennen. Welche Fähigkeit nutzt du?">
+              <span class="chev">▾</span>
+              <span class="label">Typische IT-Systeme und deren Einsatzbereiche identifizieren und zuordnen können</span>
+            </div>
+            <div class="content" id="c-itsysteme-zuordnen">
+
+              <section class="block h3" id="sec-client-thin-vdi">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-client-thin-vdi"
+                     data-tooltip="Callcenter vs. Grafikarbeitsplatz: Welcher Arbeitsplatz-Typ passt wann?">
+                  <span class="chev">▾</span>
+                  <span class="label">Client/Office-PC, Thin Client, VDI</span>
+                </div>
+                <div class="content" id="c-client-thin-vdi"></div>
+              </section>
+
+              <section class="block h3" id="sec-workstation">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-workstation"
+                     data-tooltip="Für CAD/ML/Video: Welche Merkmale qualifizieren das System?">
+                  <span class="chev">▾</span>
+                  <span class="label">Workstation</span>
+                </div>
+                <div class="content" id="c-workstation"></div>
+              </section>
+
+              <section class="block h3" id="sec-serverrollen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-serverrollen"
+                     data-tooltip="Je nach Rolle ändern sich Anforderungen. Wo ordnest du diese ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Serverrollen: File/Print/Web/DB</span>
+                </div>
+                <div class="content" id="c-serverrollen"></div>
+              </section>
+
+              <section class="block h3" id="sec-storage-nas-san-backup">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-storage-nas-san-backup"
+                     data-tooltip="Zentraler Speicher wird benötigt. Welche Variante wählst du für welchen Zweck?">
+                  <span class="chev">▾</span>
+                  <span class="label">Storage: NAS/SAN/Backup-Appliance</span>
+                </div>
+                <div class="content" id="c-storage-nas-san-backup"></div>
+              </section>
+
+              <section class="block h3" id="sec-virtualisierung-host-cluster">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-virtualisierung-host-cluster"
+                     data-tooltip="Hochverfügbarkeit und Dichte sind gefordert. Welche Plattform setzt du ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Virtualisierungshost/Cluster</span>
+                </div>
+                <div class="content" id="c-virtualisierung-host-cluster"></div>
+              </section>
+
+              <section class="block h3" id="sec-edge-embedded-iot">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-edge-embedded-iot"
+                     data-tooltip="Raue Umgebung und geringe Latenz. Welche Systeme sind sinnvoll?">
+                  <span class="chev">▾</span>
+                  <span class="label">Edge/Embedded/IoT</span>
+                </div>
+                <div class="content" id="c-edge-embedded-iot"></div>
+              </section>
+
+              <section class="block h3" id="sec-mobile-notebook-tablet">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-mobile-notebook-tablet"
+                     data-tooltip="Außendienst braucht mobil und sicher. Welche Kriterien legst du an?">
+                  <span class="chev">▾</span>
+                  <span class="label">Mobile: Notebook/Tablet</span>
+                </div>
+                <div class="content" id="c-mobile-notebook-tablet"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-leistungserbringung-varianten">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-leistungserbringung-varianten"
+                 data-tooltip="Die Geschäftsführung will wissen, wie IT-Leistungen bereitgestellt werden können. Welche Varianten kennst du?">
+              <span class="chev">▾</span>
+              <span class="label">Umsetzungsvarianten der Leistungserbringung kennen</span>
+            </div>
+            <div class="content" id="c-leistungserbringung-varianten">
+
+              <section class="block h3" id="sec-inhouse-vs-dienstleister">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-inhouse-vs-dienstleister"
+                     data-tooltip="Eigene IT oder Partnerbetrieb: Wann wählst du welche Option?">
+                  <span class="chev">▾</span>
+                  <span class="label">Inhouse vs. externer Dienstleister</span>
+                </div>
+                <div class="content" id="c-inhouse-vs-dienstleister"></div>
+              </section>
+
+              <section class="block h3" id="sec-vor-ort-vs-remote">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-vor-ort-vs-remote"
+                     data-tooltip="Ein Einsatz steht an. Welche Tätigkeiten eignen sich vor Ort, welche remote?">
+                  <span class="chev">▾</span>
+                  <span class="label">Vor-Ort vs. Remote</span>
+                </div>
+                <div class="content" id="c-vor-ort-vs-remote"></div>
+              </section>
+
+              <section class="block h3" id="sec-onprem-cloud-hybrid">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-onprem-cloud-hybrid"
+                     data-tooltip="Compliance vs. Skalierung: Welches Betriebsmodell passt?">
+                  <span class="chev">▾</span>
+                  <span class="label">On-Premises, Cloud, Hybrid</span>
+                </div>
+                <div class="content" id="c-onprem-cloud-hybrid"></div>
+              </section>
+
+              <section class="block h3" id="sec-kauf-miete-leasing">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-kauf-miete-leasing"
+                     data-tooltip="Cashflow und Risiko steuern die Wahl. Welches Beschaffungsmodell wählst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Kauf vs. Miete/Leasing</span>
+                </div>
+                <div class="content" id="c-kauf-miete-leasing"></div>
+              </section>
+
+              <section class="block h3" id="sec-projekt-vs-managed">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-projekt-vs-managed"
+                     data-tooltip="Laufender Betrieb durch Provider oder internes Projekt? Welche Form passt?">
+                  <span class="chev">▾</span>
+                  <span class="label">Einmalprojekt vs. Managed Service</span>
+                </div>
+                <div class="content" id="c-projekt-vs-managed"></div>
+              </section>
+
+              <section class="block h3" id="sec-rollout-strategien">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-rollout-strategien"
+                     data-tooltip="Du planst die Einführung: Big-Bang, Pilot oder Wellen. Welche Strategie wählst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Rollout-Strategien</span>
+                </div>
+                <div class="content" id="c-rollout-strategien"></div>
+              </section>
+
+              <section class="block h3" id="sec-sla-support-level">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sla-support-level"
+                     data-tooltip="Betrieb benötigt Reaktions- und Verfügbarkeitsziele. Welche Service-Level vereinbarst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">SLA- und Support-Level</span>
+                </div>
+                <div class="content" id="c-sla-support-level"></div>
+              </section>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- # <25 % -->
+      <section class="block h1" id="sec-lt25">
+        <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lt25"
+             data-tooltip="Der Vertrieb braucht eine Lageeinschätzung für eine Produktidee. Welches Themenfeld bearbeitest du?">
+          <span class="chev">▾</span>
+          <span class="label">&lt;25 % Marktsituationen bewerten können</span>
+        </div>
+        <div class="content" id="c-lt25">
+
+          <section class="block h2" id="sec-marktanalyse">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-marktanalyse"
+                 data-tooltip="Neue Lösungsidee, wenig Daten: Unter welchem Punkt sammelst und wertest du Marktinformationen systematisch?">
+              <span class="chev">▾</span>
+              <span class="label">Marktanalyse strukturiert durchführen</span>
+            </div>
+            <div class="content" id="c-marktanalyse">
+
+              <section class="block h3" id="sec-zielmarkt-segment">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-zielmarkt-segment"
+                     data-tooltip="Im Workshop grenzt du die adressierten Kunden ein. Welchen Schritt führst du durch?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zielmarkt und Segment definieren</span>
+                </div>
+                <div class="content" id="c-zielmarkt-segment"></div>
+              </section>
+
+              <section class="block h3" id="sec-wettbewerber-vergleichen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-wettbewerber-vergleichen"
+                     data-tooltip="Du erstellst ein Wettbewerbsprofil mit Stärken/Schwächen. Welche Analyse machst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Wettbewerber vergleichen</span>
+                </div>
+                <div class="content" id="c-wettbewerber-vergleichen"></div>
+              </section>
+
+              <section class="block h3" id="sec-kundennutzen-painpoints">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-kundennutzen-painpoints"
+                     data-tooltip="Interviews decken akute Probleme auf. Was erhebst du dabei?">
+                  <span class="chev">▾</span>
+                  <span class="label">Kundennutzen und Pain Points erheben</span>
+                </div>
+                <div class="content" id="c-kundennutzen-painpoints"></div>
+              </section>
+
+              <section class="block h3" id="sec-preisniveau-modelle">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-preisniveau-modelle"
+                     data-tooltip="Du validierst Preispunkte und Abo-/Lizenzmodelle. Was prüfst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Preisniveau und Preismodelle prüfen</span>
+                </div>
+                <div class="content" id="c-preisniveau-modelle"></div>
+              </section>
+
+              <section class="block h3" id="sec-nachfrage-trends">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-nachfrage-trends"
+                     data-tooltip="Du bewertest Volumen, Wachstum und Technologietrends. Was beurteilst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Nachfrage und Trends beurteilen</span>
+                </div>
+                <div class="content" id="c-nachfrage-trends"></div>
+              </section>
+
+              <section class="block h3" id="sec-risiken-barrieren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-risiken-barrieren"
+                     data-tooltip="Kapitalbedarf, Regulierung, Netzwerkeffekte: Was bewertest du für den Markteintritt?">
+                  <span class="chev">▾</span>
+                  <span class="label">Risiken und Eintrittsbarrieren bewerten</span>
+                </div>
+                <div class="content" id="c-risiken-barrieren"></div>
+              </section>
+
+              <section class="block h3" id="sec-ergebnis-empfehlung">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ergebnis-empfehlung"
+                     data-tooltip="Management will eine klare Go/No-Go-Aussage. Was lieferst du aus der Analyse?">
+                  <span class="chev">▾</span>
+                  <span class="label">Ergebnis als Handlungsempfehlung verdichten</span>
+                </div>
+                <div class="content" id="c-ergebnis-empfehlung"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-kundenberatung">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-kundenberatung"
+                 data-tooltip="Kundentermin steht an. Welche Beratungs-Methoden setzt du zielgerichtet ein und bewertest sie?">
+              <span class="chev">▾</span>
+              <span class="label">Zielgerichtete Methoden zur Kundenberatung kennen und beurteilen können</span>
+            </div>
+            <div class="content" id="c-kundenberatung">
+
+              <section class="block h3" id="sec-bedarfsanalyse">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-bedarfsanalyse"
+                     data-tooltip="Du klärst Ziele, Budget und Timing zu Beginn. Welchen Schritt strukturierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Bedarfsanalyse strukturieren</span>
+                </div>
+                <div class="content" id="c-bedarfsanalyse"></div>
+              </section>
+
+              <section class="block h3" id="sec-spin">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-spin"
+                     data-tooltip="Du leitest das Gespräch über Situation, Problem, Impact, Need-Payoff. Welche Technik nutzt du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Fragetechniken wie SPIN</span>
+                </div>
+                <div class="content" id="c-spin"></div>
+              </section>
+
+              <section class="block h3" id="sec-bant">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-bant"
+                     data-tooltip="Du prüfst, ob der Lead kaufbereit ist. Welche Kriterien checkst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Qualifizierung mit BANT</span>
+                </div>
+                <div class="content" id="c-bant"></div>
+              </section>
+
+              <section class="block h3" id="sec-nutzenargumentation">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-nutzenargumentation"
+                     data-tooltip="Du verbindest Features mit messbarem Kundennutzen. Was leitest du ab?">
+                  <span class="chev">▾</span>
+                  <span class="label">Nutzenargumentation ableiten</span>
+                </div>
+                <div class="content" id="c-nutzenargumentation"></div>
+              </section>
+
+              <section class="block h3" id="sec-einwände-behandeln">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-einwände-behandeln"
+                     data-tooltip="Preis, Risiko, Aufwand kommen auf. Welche Gesprächsphase steuerst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Einwände behandeln</span>
+                </div>
+                <div class="content" id="c-einwände-behandeln"></div>
+              </section>
+
+              <section class="block h3" id="sec-angebot-struktur">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-angebot-struktur"
+                     data-tooltip="Du erstellst ein prüfbares Angebot mit SLAs und Annahmen. Was strukturierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Angebot klar strukturieren</span>
+                </div>
+                <div class="content" id="c-angebot-struktur"></div>
+              </section>
+
+              <section class="block h3" id="sec-abschluss-naechste-schritte">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-abschluss-naechste-schritte"
+                     data-tooltip="Du willst Commitment und einen verbindlichen Folgetermin. Was vereinbarst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Abschluss und nächste Schritte vereinbaren</span>
+                </div>
+                <div class="content" id="c-abschluss-naechste-schritte"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-ki-erklaerung">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-ki-erklaerung"
+                 data-tooltip="Du führst eine KI-App im Fachbereich ein. Wie erklärst du sie Endnutzern verständlich und sicher?">
+              <span class="chev">▾</span>
+              <span class="label">KI Bezug: Erklärung von KI gestützten Anwendungen für Endnutzer</span>
+            </div>
+            <div class="content" id="c-ki-erklaerung">
+
+              <section class="block h3" id="sec-usecase-greifbar">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-usecase-greifbar"
+                     data-tooltip="Du startest mit einem Alltagsszenario des Teams. Was machst du greifbar?">
+                  <span class="chev">▾</span>
+                  <span class="label">Use Case greifbar machen</span>
+                </div>
+                <div class="content" id="c-usecase-greifbar"></div>
+              </section>
+
+              <section class="block h3" id="sec-datenfluss-darstellen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-datenfluss-darstellen"
+                     data-tooltip="Du zeichnest Eingaben, Verarbeitung und Ausgaben. Was stellst du dar?">
+                  <span class="chev">▾</span>
+                  <span class="label">Datenfluss einfach darstellen</span>
+                </div>
+                <div class="content" id="c-datenfluss-darstellen"></div>
+              </section>
+
+              <section class="block h3" id="sec-grenzen-fehlerquellen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-grenzen-fehlerquellen"
+                     data-tooltip="Halluzination, Bias, Confidence: Was benennst du offen?">
+                  <span class="chev">▾</span>
+                  <span class="label">Grenzen und Fehlerquellen benennen</span>
+                </div>
+                <div class="content" id="c-grenzen-fehlerquellen"></div>
+              </section>
+
+              <section class="block h3" id="sec-datenschutz-einwilligung">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-datenschutz-einwilligung"
+                     data-tooltip="Du klärst Datenarten, Speicherorte und Rechtsgrundlagen. Was erklärst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Datenschutz und Einwilligung erklären</span>
+                </div>
+                <div class="content" id="c-datenschutz-einwilligung"></div>
+              </section>
+
+              <section class="block h3" id="sec-bedienkonzept-feedback">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-bedienkonzept-feedback"
+                     data-tooltip="Du zeigst Eingabe, Korrektur und Meldung falscher Ergebnisse. Was demonstrierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Bedienkonzept und Feedbackweg zeigen</span>
+                </div>
+                <div class="content" id="c-bedienkonzept-feedback"></div>
+              </section>
+
+              <section class="block h3" id="sec-verantwortlichkeiten-klaeren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-verantwortlichkeiten-klaeren"
+                     data-tooltip="Team fragt nach Haftung und Überwachung. Was klärst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Verantwortlichkeiten klären</span>
+                </div>
+                <div class="content" id="c-verantwortlichkeiten-klaeren"></div>
+              </section>
+
+              <section class="block h3" id="sec-erfolgskriterien-messen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-erfolgskriterien-messen"
+                     data-tooltip="Pilot soll messbar Nutzen bringen. Welche KPIs definierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Erfolgskriterien messen</span>
+                </div>
+                <div class="content" id="c-erfolgskriterien-messen"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-sw-auswahl">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sw-auswahl"
+                 data-tooltip="Du sollst eine Lösung auswählen und belastbar begründen. Welche Kompetenz setzt du ein?">
+              <span class="chev">▾</span>
+              <span class="label">Bedarfsgerechte Auswahl von Software vornehmen und begründen können</span>
+            </div>
+            <div class="content" id="c-sw-auswahl">
+
+              <section class="block h3" id="sec-musskriterien">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-musskriterien"
+                     data-tooltip="Du definierst zwingende Funktionen und Rahmenbedingungen. Was legst du fest?">
+                  <span class="chev">▾</span>
+                  <span class="label">Anforderungen und Muss Kriterien festlegen</span>
+                </div>
+                <div class="content" id="c-musskriterien"></div>
+              </section>
+
+              <section class="block h3" id="sec-bewertungsmatrix">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-bewertungsmatrix"
+                     data-tooltip="Mehrere Anbieter stehen zur Wahl. Was erstellst du für einen objektiven Vergleich?">
+                  <span class="chev">▾</span>
+                  <span class="label">Bewertungsmatrix erstellen</span>
+                </div>
+                <div class="content" id="c-bewertungsmatrix"></div>
+              </section>
+
+              <section class="block h3" id="sec-integration-schnittstellen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-integration-schnittstellen"
+                     data-tooltip="Du checkst Fit zu bestehenden Systemen. Was prüfst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Integration und Schnittstellen prüfen</span>
+                </div>
+                <div class="content" id="c-integration-schnittstellen"></div>
+              </section>
+
+              <section class="block h3" id="sec-sicherheit-compliance">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-sicherheit-compliance"
+                     data-tooltip="DSGVO, Logging, Rollenmodell: Was bewertest du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Sicherheit und Compliance bewerten</span>
+                </div>
+                <div class="content" id="c-sicherheit-compliance"></div>
+              </section>
+
+              <section class="block h3" id="sec-lizenz-betriebskosten">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-lizenz-betriebskosten"
+                     data-tooltip="Du rechnest Modelle und TCO durch. Was kalkulierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Lizenz und Betriebskosten kalkulieren</span>
+                </div>
+                <div class="content" id="c-lizenz-betriebskosten"></div>
+              </section>
+
+              <section class="block h3" id="sec-usability-support">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-usability-support"
+                     data-tooltip="Du lässt Endnutzer probieren und prüfst Supportwege. Was testest du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Usability und Support testen</span>
+                </div>
+                <div class="content" id="c-usability-support"></div>
+              </section>
+
+              <section class="block h3" id="sec-poc">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-poc"
+                     data-tooltip="Kleiner Echtbetrieb soll Eignung zeigen. Was führst du durch?">
+                  <span class="chev">▾</span>
+                  <span class="label">Pilot und Proof of Concept durchführen</span>
+                </div>
+                <div class="content" id="c-poc"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-infos-praes-quellen">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-infos-praes-quellen"
+                 data-tooltip="Vorstandstermin naht. Wie bereitest du Informationen auf, präsentierst sie und bewertest Quellen?">
+              <span class="chev">▾</span>
+              <span class="label">Informationen aufbereiten und präsentieren sowie Quellen auswerten können</span>
+            </div>
+            <div class="content" id="c-infos-praes-quellen">
+
+              <section class="block h3" id="sec-zielgruppe-kernbotschaft">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-zielgruppe-kernbotschaft"
+                     data-tooltip="Du schärfst die Aussage für Entscheider. Was definierst du zuerst?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zielgruppe und Kernbotschaft definieren</span>
+                </div>
+                <div class="content" id="c-zielgruppe-kernbotschaft"></div>
+              </section>
+
+              <section class="block h3" id="sec-storyline">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-storyline"
+                     data-tooltip="Du führst logisch durch Problem, Lösung, Wirkung. Was baust du auf?">
+                  <span class="chev">▾</span>
+                  <span class="label">Struktur und Storyline aufbauen</span>
+                </div>
+                <div class="content" id="c-storyline"></div>
+              </section>
+
+              <section class="block h3" id="sec-visualisierung">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-visualisierung"
+                     data-tooltip="Du wählst Diagramme, die die Aussage tragen. Was wählst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Visualisierung passend wählen</span>
+                </div>
+                <div class="content" id="c-visualisierung"></div>
+              </section>
+
+              <section class="block h3" id="sec-quellen-pruefen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-quellen-pruefen"
+                     data-tooltip="Du sicherst Seriosität und Aktualität ab. Was prüfst und belegst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Quellen prüfen und belegen</span>
+                </div>
+                <div class="content" id="c-quellen-pruefen"></div>
+              </section>
+
+              <section class="block h3" id="sec-zitate-lizenzen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-zitate-lizenzen"
+                     data-tooltip="Du nutzt Grafiken und Textausschnitte. Was beachtest du rechtlich?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zitate und Lizenzen korrekt nutzen</span>
+                </div>
+                <div class="content" id="c-zitate-lizenzen"></div>
+              </section>
+
+              <section class="block h3" id="sec-demo-live">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-demo-live"
+                     data-tooltip="Du willst Praxisnähe zeigen. Was baust du in die Präsentation ein?">
+                  <span class="chev">▾</span>
+                  <span class="label">Demo und Live Beispiel einbauen</span>
+                </div>
+                <div class="content" id="c-demo-live"></div>
+              </section>
+
+              <section class="block h3" id="sec-handout-summary">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-handout-summary"
+                     data-tooltip="Nach dem Termin sollen Kernaussagen verfügbar sein. Was stellst du bereit?">
+                  <span class="chev">▾</span>
+                  <span class="label">Handout und Summary bereitstellen</span>
+                </div>
+                <div class="content" id="c-handout-summary"></div>
+              </section>
+
+            </div>
+          </section>
+
+          <section class="block h2" id="sec-change">
+            <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-change"
+                 data-tooltip="Ein neues Tool wird eingeführt. Wie begleitest und unterstützt du den Veränderungsprozess betrieblich?">
+              <span class="chev">▾</span>
+              <span class="label">Veränderungsprozesse begleiten und unterstützen</span>
+            </div>
+            <div class="content" id="c-change">
+
+              <section class="block h3" id="sec-stakeholder-betroffenheit">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-stakeholder-betroffenheit"
+                     data-tooltip="Du klärst, wer entscheidet und wen es trifft. Was analysierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Stakeholder und Betroffenheit analysieren</span>
+                </div>
+                <div class="content" id="c-stakeholder-betroffenheit"></div>
+              </section>
+
+              <section class="block h3" id="sec-zielbild-nutzen">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-zielbild-nutzen"
+                     data-tooltip="Teams brauchen ein klares „Warum“. Was kommunizierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Zielbild und Nutzen kommunizieren</span>
+                </div>
+                <div class="content" id="c-zielbild-nutzen"></div>
+              </section>
+
+              <section class="block h3" id="sec-massnahmen-meilensteine">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-massnahmen-meilensteine"
+                     data-tooltip="Roadmap mit Verantwortlichen und Terminen. Was planst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Maßnahmenplan und Meilensteine</span>
+                </div>
+                <div class="content" id="c-massnahmen-meilensteine"></div>
+              </section>
+
+              <section class="block h3" id="sec-schulung-enablement">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-schulung-enablement"
+                     data-tooltip="Rollenbezogene Trainings und Materialien. Was setzt du auf?">
+                  <span class="chev">▾</span>
+                  <span class="label">Schulung und Enablement</span>
+                </div>
+                <div class="content" id="c-schulung-enablement"></div>
+              </section>
+
+              <section class="block h3" id="sec-pilot-iterativ">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-pilot-iterativ"
+                     data-tooltip="Du startest klein und skalierst nach Feedback. Was tust du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Pilotieren und iterativ ausrollen</span>
+                </div>
+                <div class="content" id="c-pilot-iterativ"></div>
+              </section>
+
+              <section class="block h3" id="sec-feedback-widerstaende">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-feedback-widerstaende"
+                     data-tooltip="Du richtest Kanäle ein und adressierst Kritik. Was bearbeitest du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Feedback und Widerstände bearbeiten</span>
+                </div>
+                <div class="content" id="c-feedback-widerstaende"></div>
+              </section>
+
+              <section class="block h3" id="sec-wirkung-messen-dokumentieren">
+                <div class="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="c-wirkung-messen-dokumentieren"
+                     data-tooltip="Du belegst Erfolg mit Kennzahlen und Lessons Learned. Was misst und dokumentierst du?">
+                  <span class="chev">▾</span>
+                  <span class="label">Wirkung messen und dokumentieren</span>
+                </div>
+                <div class="content" id="c-wirkung-messen-dokumentieren"></div>
+              </section>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script>
+  (function(){
+    const blocks = document.querySelectorAll('.block');
+    blocks.forEach(block => {
+      const header = block.querySelector('.toggle');
+      const contentId = header?.getAttribute('aria-controls');
+      const content = contentId ? document.getElementById(contentId) : null;
+      if(!header || !content) return;
+
+      const isLeaf =
+        !content.querySelector('.block') &&
+        content.children.length === 0 &&
+        content.textContent.trim() === '';
+
+      if(isLeaf){
+        block.classList.add('leaf');
+        header.removeAttribute('role');
+        header.removeAttribute('tabindex');
+        header.removeAttribute('aria-expanded');
+        header.removeAttribute('aria-controls');
+        content.style.display = 'none';
+        return;
+      }
+
+      const isOpen = block.classList.contains('open');
+      header.setAttribute('aria-expanded', String(isOpen));
+      content.style.display = isOpen ? 'block' : 'none';
+
+      const toggle = () => {
+        const open = block.classList.toggle('open');
+        header.setAttribute('aria-expanded', String(open));
+        content.style.display = open ? 'block' : 'none';
+      };
+
+      header.addEventListener('click', toggle);
+      header.addEventListener('keydown', e=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  document.querySelectorAll('.toggle[data-tooltip]').forEach(el=>{
+    el.addEventListener('mousemove', e=>{
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx-el', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my-el', (e.clientY - r.top)  + 'px');
+    });
+  });
+  </script>
+</body>
+</html>
